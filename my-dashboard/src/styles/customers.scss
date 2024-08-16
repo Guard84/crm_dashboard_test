@@ -1,16 +1,18 @@
 .customers {
   width: 968px;
+  height: 812px;
+  flex-shrink: 0;
   background: #fff;
   filter: drop-shadow(0px 10px 60px rgba(226, 236, 249, 0.5));
-  margin: auto;
-  padding-top: 30px;
-  padding-left: 38px;
+  margin: 0;
+  padding: 40px;
+  overflow: hidden;
 
   .customers-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
     &-title {
       font-size: 22px;
@@ -30,49 +32,112 @@
     border-radius: 10px;
     background: #f9fbff;
     outline: none;
+    border: none;
+
+    &::placeholder {
+      color: #B5B7C0;
+      font-size: 12px;
+      font-weight: 400;
+    }
   }
-  
 }
 
 .members-table {
   width: 100%;
-  border-collapse: collapse;
-
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-  }
-
-  th {
-    background-color: #f4f4f4;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  tr {
-    &:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-  }
-
-  .active {
-    color: #21c55d;
-  }
-
-  .inactive {
-    color: #e11d48;
-  }
+  border-spacing: 0;
+  border-collapse: separate;
 }
+
+.members-table thead th {
+  text-transform: capitalize;
+  color: #B5B7C0;
+  font-weight: 500;
+  padding-bottom: 14px;
+  padding-top: 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+.members-table thead th::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #EEE;
+}
+
+th,
+td {
+  text-align: left;
+  vertical-align: middle;
+  padding: 24px 0;
+}
+
+.members-table tbody tr {
+  position: relative;
+  color: #292D32;
+  font-weight: 500;
+}
+
+.members-table tbody tr:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #EEE;
+}
+
+.members-table tbody tr:last-child::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #EEE;
+}
+
+.active {
+  color: #008767;
+  display: flex;
+  width: 80px;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  border: 1px solid #00b087;
+  background: rgba(22, 192, 152, 0.38);
+  margin: auto;
+}
+
+.inactive {
+  color: #e11d48;
+  display: flex;
+  width: 80px;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  border: 1px solid #df0404;
+  background: #ffc5c5;
+  margin: auto;
+}
+
 
 .pagination {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 32px;
 
   p {
-    font-size: 0.875rem;
-    color: #6b7280;
+    color: #B5B7C0;
   }
 
   .pagination-buttons {
@@ -104,5 +169,3 @@
     }
   }
 }
-
-
