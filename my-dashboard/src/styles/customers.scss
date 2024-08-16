@@ -1,0 +1,108 @@
+.customers {
+  width: 968px;
+  background: #fff;
+  filter: drop-shadow(0px 10px 60px rgba(226, 236, 249, 0.5));
+  margin: auto;
+  padding-top: 30px;
+  padding-left: 38px;
+
+  .customers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &-title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.22px;
+      margin-bottom: 7px;
+
+      &-members {
+        color: #16c098;
+      }
+    }
+  }
+  .customers-search {
+    width: 216px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #f9fbff;
+    outline: none;
+  }
+  
+}
+
+.members-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f4f4f4;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  tr {
+    &:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  }
+
+  .active {
+    color: #21c55d;
+  }
+
+  .inactive {
+    color: #e11d48;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  p {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  .pagination-buttons {
+    display: flex;
+    align-items: center;
+
+    button {
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 5px 10px;
+      margin: 0 2px;
+      cursor: pointer;
+      outline: none;
+
+      &.active {
+        background-color: #6f42c1;
+        color: #fff;
+      }
+
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+
+    span {
+      padding: 5px 10px;
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
+
+

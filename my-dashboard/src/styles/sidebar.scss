@@ -1,0 +1,61 @@
+// menu.scss
+@import "./variables";
+@import "./mixins";
+
+.sidebar {
+  width: 306px;
+  height: 100vh;
+  background-color: $menu-background;
+
+  &-header {
+    color: #000;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.26px;
+    margin-bottom: 65px;
+
+    &-span {
+      color: #838383;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: -0.1px;
+      margin-left: 4px;
+    }
+  }
+
+  &-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-item {
+      margin-bottom: 30px;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 250px;
+        height: 46px;
+        font-weight: $font-weight;
+        flex-shrink: 0;
+        box-sizing: border-box;
+
+        @include menu-item(
+          $menu-background,
+          $menu-text-color,
+          $menu-hover-color,
+          $menu-active-color
+        );
+
+        &.active {
+          background-color: $menu-active-color;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
