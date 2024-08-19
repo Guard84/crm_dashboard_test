@@ -55,6 +55,8 @@
 
     .customers-search-input {
       @include search-input();
+      padding-left: 38px;
+      width: 100%;
     }
 
     @include v-sm {
@@ -224,4 +226,33 @@
       height: 12px;
     }
   }
+}
+
+// mixins
+@mixin customers-header() {
+  font-size: $customers-header-font-size;
+  font-weight: $customers-header-font-weight;
+  color: $customers-header-color;
+}
+
+@mixin search-input() {
+  padding: $customers-search-input-padding;
+  border-radius: 10px;
+  background: $customers-search-background;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $customers-search-placeholder-color;
+    font-size: 12px;
+    font-weight: $font-weight;
+  }
+}
+
+@mixin search-icon() {
+  width: 24px;
+  height: 24px;
+  fill: $customers-search-icon-color;
+  font-size: 18px;
 }
