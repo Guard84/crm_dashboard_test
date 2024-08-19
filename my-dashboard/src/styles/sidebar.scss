@@ -16,10 +16,10 @@
     position: fixed;
     transform: translateX(-100%);
     padding: 3.2rem 1.6rem;
-    z-index: 2;
+    z-index: 6;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: auto;
   }
 
   &.open {
