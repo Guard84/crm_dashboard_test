@@ -74,7 +74,6 @@
         border: none;
         font-weight: $font-weight;
         flex-shrink: 0;
-        box-sizing: border-box;
 
         @include menu-item(
           $menu-background,
