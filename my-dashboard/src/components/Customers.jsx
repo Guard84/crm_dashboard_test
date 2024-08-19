@@ -1,6 +1,9 @@
 import { useState } from "react";
 import members from "../members.json";
 import "../styles/customers.scss";
+import { CiSearch } from "react-icons/ci";
+import { MdOutlineChevronLeft, MdChevronRight } from "react-icons/md";
+
 const Customers = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,16 +26,21 @@ const Customers = () => {
     <div className="customers">
       <div className="customers-header">
         <div>
-        <h1 className="customers-header-title">All Customers</h1>
-        <p className="customers-header-title-members">Active Members</p>
+          <h1 className="customers-header-title">All Customers</h1>
+          <p className="customers-header-title-members">Active Members</p>
         </div>
-        <input
-          type="text"
-          placeholder="Search"
-          className="customers-search"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+        <div className="customers-search">
+          <div className="customers-search-input-wrapper">
+            <CiSearch className="customers-search-icon" />
+            <input
+              type="text"
+              placeholder="Search"
+              className="customers-search-input"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+        </div>
       </div>
 
       <div className="members">
@@ -69,36 +77,42 @@ const Customers = () => {
       <div className="pagination">
         <p>Showing data 1 to 8 of {filteredMembers.length} entries</p>
         <div className="pagination-buttons">
+          <button>
+            <MdOutlineChevronLeft />
+          </button>
           <button
-            className={currentPage === 1 ? "active" : ""}
+            className={currentPage === 1 ? "selected" : ""}
             onClick={() => handlePageClick(1)}
           >
             1
           </button>
           <button
-            className={currentPage === 2 ? "active" : ""}
+            className={currentPage === 2 ? "selected" : ""}
             onClick={() => handlePageClick(2)}
           >
             2
           </button>
           <button
-            className={currentPage === 3 ? "active" : ""}
+            className={currentPage === 3 ? "selected" : ""}
             onClick={() => handlePageClick(3)}
           >
             3
           </button>
           <button
-            className={currentPage === 4 ? "active" : ""}
+            className={currentPage === 4 ? "selected" : ""}
             onClick={() => handlePageClick(4)}
           >
             4
           </button>
           <span>...</span>
           <button
-            className={currentPage === 40 ? "active" : ""}
+            className={currentPage === 40 ? "selected" : ""}
             onClick={() => handlePageClick(40)}
           >
             40
+          </button>
+          <button>
+            <MdChevronRight />
           </button>
         </div>
       </div>

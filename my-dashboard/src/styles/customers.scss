@@ -6,7 +6,7 @@
   filter: drop-shadow(0px 10px 60px rgba(226, 236, 249, 0.5));
   margin: 0;
   padding: 40px;
-  overflow: hidden;
+  border-radius: 16px;
 
   .customers-header {
     display: flex;
@@ -25,19 +25,39 @@
       }
     }
   }
-  .customers-search {
-    width: 216px;
-    height: 38px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: #f9fbff;
-    outline: none;
-    border: none;
 
-    &::placeholder {
-      color: #B5B7C0;
-      font-size: 12px;
-      font-weight: 400;
+  .customers-search {
+    position: relative;
+    width: 216px;
+
+    .customers-search-input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .customers-search-icon {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      fill: #7E7E7E;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+      font-size: 18px;
+    }
+
+    .customers-search-input {
+      padding: 10px 10px 10px 40px;
+      border-radius: 10px;
+      background: #f9fbff;
+      outline: none;
+      border: none;
+
+      &::placeholder {
+        color: #b5b7c0;
+        font-size: 12px;
+        font-weight: 400;
+      }
     }
   }
 }
@@ -50,7 +70,7 @@
 
 .members-table thead th {
   text-transform: capitalize;
-  color: #B5B7C0;
+  color: #b5b7c0;
   font-weight: 500;
   padding-bottom: 14px;
   padding-top: 0;
@@ -65,7 +85,7 @@
   bottom: 0;
   width: 100%;
   height: 1px;
-  background: #EEE;
+  background: #eee;
 }
 
 th,
@@ -77,7 +97,7 @@ td {
 
 .members-table tbody tr {
   position: relative;
-  color: #292D32;
+  color: #292d32;
   font-weight: 500;
 }
 
@@ -88,7 +108,7 @@ td {
   bottom: 0;
   width: 100%;
   height: 1px;
-  background: #EEE;
+  background: #eee;
 }
 
 .members-table tbody tr:last-child::after {
@@ -98,7 +118,7 @@ td {
   bottom: 0;
   width: 100%;
   height: 1px;
-  background: #EEE;
+  background: #eee;
 }
 
 .active {
@@ -129,7 +149,6 @@ td {
   margin: auto;
 }
 
-
 .pagination {
   display: flex;
   justify-content: space-between;
@@ -137,24 +156,32 @@ td {
   margin-top: 32px;
 
   p {
-    color: #B5B7C0;
+    color: #b5b7c0;
   }
 
   .pagination-buttons {
     display: flex;
     align-items: center;
+    gap: 12px;
 
     button {
-      background-color: #f4f4f4;
-      border: 1px solid #ddd;
-      padding: 5px 10px;
-      margin: 0 2px;
+      background: #f5f5f5;
+      border: 1px #eee;
+      border-radius: 4px;
+      padding: 6px 8px;
       cursor: pointer;
       outline: none;
+      color: #404B52;
+      font-size: 12px;
+      font-weight: 500;
+      transition: background-color 0.3s;
 
-      &.active {
-        background-color: #6f42c1;
+      &.selected {
         color: #fff;
+        border: 1px #5932ea;
+        background: #5932ea;
+        margin: 0;
+        pointer-events: none;
       }
 
       &:hover {
@@ -163,9 +190,11 @@ td {
     }
 
     span {
-      padding: 5px 10px;
-      border: none;
+      color: #000;
+      font-size: 12px;
       background-color: transparent;
+      width: 9px;
+      height: 12px;
     }
   }
 }
