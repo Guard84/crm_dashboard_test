@@ -59,11 +59,15 @@
   background: $customers-search-background;
   outline: none;
   border: none;
+  box-sizing: border-box;
+  line-height: 1.8;
+  height: 38px;
 
   &::placeholder {
     color: $customers-search-placeholder-color;
     font-size: 12px;
     font-weight: $font-weight;
+    line-height: 1.5;
   }
 }
 
