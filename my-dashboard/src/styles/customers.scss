@@ -1,27 +1,37 @@
+@import "./variables";
+@import "./mixins";
+
 .customers {
   width: 968px;
-  height: 812px;
+  height: auto;
   flex-shrink: 0;
-  background: #fff;
+  background: $customers-background;
   filter: drop-shadow(0px 10px 60px rgba(226, 236, 249, 0.5));
   margin: 0;
   padding: 40px;
   border-radius: 16px;
 
   .customers-header {
+    @include customers-header();
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: $customers-header-margin-bottom;
+
+    @include v-md {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
 
     &-title {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.22px;
-      margin-bottom: 7px;
+      @include customers-header();
+      margin-bottom: $customers-header-title-margin-bottom;
 
       &-members {
         color: #16c098;
+        font-size: 14px;
+        font-weight: 400;
       }
     }
   }
@@ -36,28 +46,19 @@
     }
 
     .customers-search-icon {
+      @include search-icon();
       position: absolute;
-      width: 24px;
-      height: 24px;
-      fill: #7E7E7E;
       top: 50%;
       left: 8px;
       transform: translateY(-50%);
-      font-size: 18px;
     }
 
     .customers-search-input {
-      padding: 10px 10px 10px 40px;
-      border-radius: 10px;
-      background: #f9fbff;
-      outline: none;
-      border: none;
+      @include search-input();
+    }
 
-      &::placeholder {
-        color: #b5b7c0;
-        font-size: 12px;
-        font-weight: 400;
-      }
+    @include v-sm {
+      width: 100%;
     }
   }
 }
@@ -66,59 +67,71 @@
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
-}
 
-.members-table thead th {
-  text-transform: capitalize;
-  color: #b5b7c0;
-  font-weight: 500;
-  padding-bottom: 14px;
-  padding-top: 0;
-  white-space: nowrap;
-  position: relative;
-}
+  @include v-xs {
+    font-size: 10;
+    width: 360px;
+  }
 
-.members-table thead th::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #eee;
-}
+  thead th {
+    text-transform: capitalize;
+    color: #b5b7c0;
+    font-weight: 500;
+    padding-bottom: 14px;
+    padding-top: 0;
+    white-space: nowrap;
+    position: relative;
 
-th,
-td {
-  text-align: left;
-  vertical-align: middle;
-  padding: 24px 0;
-}
+    @include v-xs {
+      font-size: 10px;
+      text-align: center;
+    }
 
-.members-table tbody tr {
-  position: relative;
-  color: #292d32;
-  font-weight: 500;
-}
+    @include v-sm {
+      font-size: 14px;
+    }
+  }
 
-.members-table tbody tr:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #eee;
-}
+  thead th::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #eee;
+  }
 
-.members-table tbody tr:last-child::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #eee;
+  th,
+  td {
+    text-align: left;
+    vertical-align: middle;
+    padding: 24px 0;
+
+    @include v-xs {
+      padding: 8px 0;
+    }
+  }
+
+  tbody tr {
+    position: relative;
+    color: #292d32;
+    font-weight: 500;
+
+    @include v-xs {
+      font-size: 12px;
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: #eee;
+    }
+  }
 }
 
 .active {
@@ -133,6 +146,11 @@ td {
   border: 1px solid #00b087;
   background: rgba(22, 192, 152, 0.38);
   margin: auto;
+
+  @include v-xs {
+    width: 100px;
+    padding: 6px 14px;
+  }
 }
 
 .inactive {
@@ -147,6 +165,11 @@ td {
   border: 1px solid #df0404;
   background: #ffc5c5;
   margin: auto;
+
+  @include v-xs {
+    width: 100px;
+    padding: 6px 14px;
+  }
 }
 
 .pagination {
@@ -171,7 +194,7 @@ td {
       padding: 6px 8px;
       cursor: pointer;
       outline: none;
-      color: #404B52;
+      color: #404b52;
       font-size: 12px;
       font-weight: 500;
       transition: background-color 0.3s;
@@ -186,6 +209,10 @@ td {
 
       &:hover {
         background-color: #ddd;
+      }
+
+      @include v-xs {
+        padding: 4px 6px;
       }
     }
 
