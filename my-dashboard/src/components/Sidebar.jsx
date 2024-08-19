@@ -29,7 +29,7 @@ const Sidebar = () => {
         <Menu />
         <div className="sidebar-manager">
           <img
-            src="/images/manager_photo.png"
+            src="/crm_dashboard_test/images/manager_photo.png"
             alt="Manager avatar"
           />
           <div className="sidebar-manager-info">
