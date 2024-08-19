@@ -1,0 +1,75 @@
+//responsive
+@mixin v-xl {
+  @media only screen and (max-width: 1399.98px) {
+    @content;
+  }
+}
+
+@mixin v-lg {
+  @media only screen and (max-width: 1199.98px) {
+    @content;
+  }
+}
+
+@mixin v-md {
+  @media only screen and (max-width: 991.98px) {
+    @content;
+  }
+}
+
+@mixin v-sm {
+  @media only screen and (max-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin v-xs {
+  @media only screen and (max-width: 575.98px) {
+    @content;
+  }
+}
+
+// menu
+@mixin menu-item($background, $text-color, $hover-color, $active-color) {
+  background-color: $background;
+  color: $text-color;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &.active {
+    background-color: $active-color;
+    color: white;
+  }
+}
+
+// customers
+@mixin customers-header() {
+  font-size: $customers-header-font-size;
+  font-weight: $customers-header-font-weight;
+  color: $customers-header-color;
+}
+
+@mixin search-input() {
+  padding: $customers-search-input-padding;
+  border-radius: 10px;
+  background: $customers-search-background;
+  outline: none;
+  border: none;
+
+  &::placeholder {
+    color: $customers-search-placeholder-color;
+    font-size: 12px;
+    font-weight: $font-weight;
+  }
+}
+
+@mixin search-icon() {
+  width: 24px;
+  height: 24px;
+  fill: $customers-search-icon-color;
+  font-size: 18px;
+}
